@@ -10,5 +10,4 @@
  */
 import { withGlobals } from "../withGlobals";
 import { withRoundTrip } from "../withRoundTrip";
-
 export const decorators = [withGlobals, withRoundTrip];

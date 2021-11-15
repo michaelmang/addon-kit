@@ -2,31 +2,15 @@ import React, { Fragment } from "react";
 import { styled, themes, convert } from "@storybook/theming";
 import { TabsState, Placeholder, Button } from "@storybook/components";
 import { List } from "./List";
-
 export const RequestDataButton = styled(Button)({
   marginTop: "1rem",
 });
-
-type Results = {
-  danger: any[];
-  warning: any[];
-};
-
-interface PanelContentProps {
-  results: Results;
-  fetchData: () => void;
-  clearData: () => void;
-}
 
 /**
  * Checkout https://github.com/storybookjs/storybook/blob/next/addons/jest/src/components/Panel.tsx
  * for a real world example
  */
-export const PanelContent: React.FC<PanelContentProps> = ({
-  results,
-  fetchData,
-  clearData,
-}) => (
+export const PanelContent = ({ results, fetchData, clearData }) => (
   <TabsState
     initial="overview"
     backgroundColor={convert(themes.normal).background.hoverable}
@@ -47,7 +31,9 @@ export const PanelContent: React.FC<PanelContentProps> = ({
             secondary
             small
             onClick={fetchData}
-            style={{ marginRight: 16 }}
+            style={{
+              marginRight: 16,
+            }}
           >
             Request data
           </RequestDataButton>

@@ -1,7 +1,7 @@
 {
-  "name": "storybook-addon-kit",
-  "version": "0.0.0",
-  "description": "everything you need to build a Storybook addon",
+  "name": "storybook-tokens",
+  "version": "1.0.0",
+  "description": "A Storybook addon for extracting design tokens from components.",
   "keywords": [
     "storybook-addons",
     "style",
@@ -52,6 +52,7 @@
     "boxen": "^5.0.1",
     "concurrently": "^6.2.0",
     "dedent": "^0.7.0",
+    "postcss": "^8.3.11",
     "prettier": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -88,5 +89,10 @@
       "angular"
     ],
     "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

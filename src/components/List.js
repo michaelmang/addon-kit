@@ -1,14 +1,12 @@
 import React, { Fragment, useState } from "react";
 import { styled, themes, convert } from "@storybook/theming";
-import { Icons, IconsProps } from "@storybook/components";
-
+import { Icons } from "@storybook/components";
 const ListWrapper = styled.ul({
   listStyle: "none",
   fontSize: 14,
   padding: 0,
   margin: 0,
 });
-
 const Wrapper = styled.div({
   display: "flex",
   width: "100%",
@@ -17,8 +15,7 @@ const Wrapper = styled.div({
     background: convert(themes.normal).background.hoverable,
   },
 });
-
-const Icon = styled(Icons)<IconsProps>({
+const Icon = styled(Icons)({
   height: 10,
   width: 10,
   minWidth: 10,
@@ -28,7 +25,6 @@ const Icon = styled(Icons)<IconsProps>({
   alignSelf: "center",
   display: "inline-flex",
 });
-
 const HeaderBar = styled.div({
   padding: convert(themes.normal).layoutMargin,
   paddingLeft: convert(themes.normal).layoutMargin - 3,
@@ -38,31 +34,18 @@ const HeaderBar = styled.div({
   cursor: "pointer",
   borderLeft: "3px solid transparent",
   width: "100%",
-
   "&:focus": {
     outline: "0 none",
     borderLeft: `3px solid ${convert(themes.normal).color.secondary}`,
   },
 });
-
 const Description = styled.div({
   padding: convert(themes.normal).layoutMargin,
   marginBottom: convert(themes.normal).layoutMargin,
   fontStyle: "italic",
 });
-
-type Item = {
-  title: string;
-  description: string;
-};
-
-interface ListItemProps {
-  item: Item;
-}
-
-export const ListItem: React.FC<ListItemProps> = ({ item }) => {
+export const ListItem = ({ item }) => {
   const [open, onToggle] = useState(false);
-
   return (
     <Fragment>
       <Wrapper>
@@ -81,12 +64,7 @@ export const ListItem: React.FC<ListItemProps> = ({ item }) => {
     </Fragment>
   );
 };
-
-interface ListProps {
-  items: Item[];
-}
-
-export const List: React.FC<ListProps> = ({ items }) => (
+export const List = ({ items }) => (
   <ListWrapper>
     {items.map((item, idx) => (
       <ListItem key={idx} item={item}></ListItem>
